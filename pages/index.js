@@ -23,14 +23,15 @@ export async function getStaticProps() {
   if (!data) {
     return {
       redirect: {
-        destination: '/no-data'
-      }
-    }
+        destination: '/no-data',
+      },
+    };
   }
 
   if (data.products.length === 0) {
     return { notFound: true };
   }
+
   return { props: { products: data.products }, revalidate: 10 };
 }
 
